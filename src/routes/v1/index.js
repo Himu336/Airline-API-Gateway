@@ -7,6 +7,6 @@ router.get('/info',(req,res) => {
     return res.json({msg: "ok"});
 });
 
-router.use('/signup', userRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;
