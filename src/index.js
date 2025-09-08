@@ -4,11 +4,14 @@ const apiRoutes = require('./routes');
 const ratelimit = require('express-rate-limit');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { create } = require('./services/user-service');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
 
 const limiter = ratelimit({
     windowMs: 2 * 60 * 1000, // 15 minutes
-    max: 3, // Limit each IP to 100 requests per windowMs
+    max: 3000, // Limit each IP to 100 requests per windowMs
 });
 
 app.use(express.json()); // For JSON bodies
